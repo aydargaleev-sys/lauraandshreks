@@ -8,16 +8,17 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b0b3a;--tx:#fdf6e3}}
 :root[data-theme="dark"]{--bg:#1b0b3a;--tx:#fdf6e3}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
-body{margin:0;color:var(--tx);font-family:"Press Start 2P",ui-monospace,Menlo,monospace;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:36px 8px 18px;background:linear-gradient(#12062b 0%,#3a1060 55%,#ff5fa8 100%) fixed}
-body:before{content:"";position:fixed;left:-50%;right:-50%;bottom:0;height:42%;background:repeating-linear-gradient(90deg,#ff9fd055 0 2px,transparent 2px 56px),repeating-linear-gradient(0deg,#ff9fd055 0 2px,transparent 2px 34px);transform:perspective(260px) rotateX(58deg);transform-origin:bottom;z-index:-1}
-#gb{position:relative;width:min(100%,520px);background:linear-gradient(160deg,var(--b1),var(--b2));border:4px solid var(--ed);border-radius:18px 18px 64px 18px;padding:10px 12px 18px;box-shadow:0 0 0 3px #12062b,0 10px 0 3px #12062b,0 0 46px #ff5fa899}
+html,body{overflow-x:hidden;overscroll-behavior:none}
+body{margin:0;color:var(--tx);font-family:"Press Start 2P",ui-monospace,Menlo,monospace;min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:30px 4px 14px;background:linear-gradient(#12062b 0%,#3a1060 55%,#ff5fa8 100%) fixed}
+body:before{content:"";position:fixed;left:0;right:0;bottom:0;pointer-events:none;height:42%;background:repeating-linear-gradient(90deg,#ff9fd055 0 2px,transparent 2px 56px),repeating-linear-gradient(0deg,#ff9fd055 0 2px,transparent 2px 34px);transform:perspective(260px) rotateX(58deg);transform-origin:bottom;z-index:-1}
+#gb{position:relative;max-width:100%;width:min(100%,600px);background:linear-gradient(160deg,var(--b1),var(--b2));border:4px solid var(--ed);border-radius:18px 18px 64px 18px;padding:10px 12px 18px;box-shadow:0 0 0 3px #12062b,0 10px 0 3px #12062b,0 0 46px #ff5fa899}
 #gb:before,#gb:after{content:"";position:absolute;top:-24px;width:58px;height:36px;background:radial-gradient(ellipse at 50% 85%,#f0a9a0 0 32%,var(--b1) 34%);border:4px solid var(--ed);border-radius:60% 60% 20% 20%;z-index:-1}
 #gb:before{left:9%;transform:rotate(-24deg)}#gb:after{right:9%;transform:rotate(24deg)}
 .stripe{height:7px;border-radius:4px;background:linear-gradient(90deg,#ff3d9a 0 33.3%,#ffcf33 33.3% 66.6%,#2ee6ff 66.6%);margin-bottom:8px}
 .brand{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px;color:#12062b}
 .brand b{font-size:14px;font-style:italic;color:#fff;text-shadow:2px 2px 0 #12062b,-1px -1px 0 #ff3d9a}.brand span{font-size:6px;line-height:1.5;text-align:right}
-#main{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"bez bez bez" "dp . ab";gap:14px 8px;align-items:center}
-#bez{grid-area:bez;position:relative;background:#3a2a52;border:3px solid #1d1230;border-radius:10px 10px 34px 10px;padding:12px 12px 6px}
+#main{display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"bez bez bez" "dp . ab";gap:14px 8px;align-items:center}
+#bez{grid-area:bez;position:relative;background:#3a2a52;border:3px solid #1d1230;border-radius:10px 10px 34px 10px;padding:8px 8px 4px}
 .led{position:absolute;left:5px;top:42%;width:5px;height:5px;border-radius:50%;background:#ff3030;box-shadow:0 0 6px #ff3030}
 #w{touch-action:none;position:relative;background:#000;border:3px solid #000;width:100%;margin:0 auto;overflow:hidden}
 #w:after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,#0003 0 1px,transparent 1px 3px)}
@@ -34,11 +35,12 @@ canvas{width:100%;display:block;image-rendering:pixelated;background:#2a1636}
 .pill{width:56px;height:16px;border-radius:9px;border:0;background:#8a8f9c;box-shadow:0 3px 0 #0004;touch-action:none}.pill:active{transform:translateY(2px)}.pill.off{background:#d6455d}
 .spk{position:absolute;right:16px;bottom:10px;width:50px;height:30px;background:repeating-linear-gradient(-30deg,var(--ed) 0 4px,transparent 4px 9px);border-radius:6px;opacity:.6;pointer-events:none}
 @media (min-width:760px) and (min-aspect-ratio:3/2){
- #gb{width:min(100%,1060px);padding:12px 22px 20px;border-radius:22px 22px 80px 22px}
- #main{grid-template-columns:150px minmax(0,1fr) 150px;grid-template-areas:"dp bez ab"}
+ #gb{width:min(100%,1320px);padding:12px 22px 20px;border-radius:22px 22px 80px 22px}
+ #main{grid-template-columns:190px minmax(0,1fr) 190px;grid-template-areas:"dp bez ab"}
  #dp{justify-self:center}#ab{justify-self:center}
- #w{width:min(100%,calc((100vh - 230px)*1.7778))}.brand b{font-size:18px}.brand span{font-size:8px}.dm{font-size:7px}}
-@media (max-width:520px){#dp{grid-template-columns:repeat(3,clamp(46px,15vw,66px));grid-template-rows:repeat(3,clamp(46px,15vw,66px))}.ab{width:clamp(64px,21vw,88px);height:clamp(64px,21vw,88px);font-size:18px}.bw.up{margin-bottom:30px}#main{gap:26px 8px}.pill{width:64px;height:20px}#ss{margin-top:18px}}
+ #dp{grid-template-columns:repeat(3,58px);grid-template-rows:repeat(3,58px)}.ab{width:80px;height:80px;font-size:20px}.pill{width:70px;height:20px}
+ #w{width:min(100%,calc((100vh - 190px)*1.7778))}.brand b{font-size:18px}.brand span{font-size:8px}.dm{font-size:7px}}
+@media (max-width:520px){#dp{grid-template-columns:repeat(3,clamp(38px,13vw,60px));grid-template-rows:repeat(3,clamp(38px,13vw,60px))}.ab{width:clamp(54px,18vw,80px);height:clamp(54px,18vw,80px);font-size:16px}#ab{gap:10px}.bw.up{margin-bottom:24px}#main{gap:22px 6px}.pill{width:60px;height:20px}#ss{margin-top:16px}}
 @media (max-height:520px){body{padding:8px}.brand,.stripe,.dm,#ss small,.spk{display:none}#gb:before,#gb:after{display:none}#gb{padding:8px 12px}#ss{margin-top:6px}#w{width:min(100%,calc((100vh - 110px)*1.7778))}}
 .pb{font:inherit;font-size:11px;background:var(--ac);color:#2a1636;border:3px solid #000;box-shadow:0 4px 0 #000;padding:14px 8px;cursor:pointer;touch-action:none}
 .pb:active{transform:translateY(3px);box-shadow:0 1px 0 #000}
@@ -46,7 +48,7 @@ canvas{width:100%;display:block;image-rendering:pixelated;background:#2a1636}
 #ov[hidden]{display:none}
 .box{max-width:420px;width:100%;text-align:center;font-size:10px;line-height:1.7}
 .box .pb{width:100%;margin:6px 0}
-.box img{width:100%;image-rendering:pixelated;border:4px solid #000;margin-bottom:10px}
+.box img{display:block;width:auto;max-width:100%;max-height:34vh;margin:0 auto 10px;image-rendering:pixelated;border:4px solid #000}
 .box h2{font-size:14px;color:var(--ac);margin:8px 0}
 </style></head><body>
 <div id="gb">
@@ -79,7 +81,7 @@ const musicOn=()=>{if(!mon){mon=true;mstep()}},musicOff=()=>{mon=false};
 $('#mt').onclick=()=>{mute=!mute;$('#mt').classList.toggle('off',mute);try{localStorage.setItem('lsmute',mute?'1':'0')}catch(e){}};
 $('#mt').classList.toggle('off',mute);
 /* ---------- состояние ---------- */
-let mode='load',t=0,intro=0,sc=0,dist=0,spd=95,gap=55,charge=0,hearts=0,turbo=0,shake=0,best=0,aydar=false,wt=0,lt=0,sd=0,flav=10,dk=0,dkT=0,shown=0,tapc=0,ay=0,paused=false,keyBuf='',rp=0,paddle=0,boss=null,bossNext=220;
+let mode='load',t=0,intro=0,sc=0,dist=0,spd=95,gap=55,charge=0,hearts=0,turbo=0,shake=0,best=0,aydar=false,wt=0,lt=0,sd=0,flav=10,dk=0,dkT=0,shown=0,tapc=0,ay=0,paused=false,stage=1,combo=0,hits=0,hugs=0,wi={bonus:0,clean:0},keyBuf='',rp=0,paddle=0,boss=null,bossNext=220;
 try{best=+localStorage.getItem('lsbest')||0}catch(e){}
 let lau,sh,signs=[],obs=[],pk=[],logs=[],pt=[],tx=[],dc=[],big=null;
 const HIT=['Ай!','Шрек хохочет над тобой','Айдар: «Ненавижу»','Лаура: «ШРЕК, ПОДОЖДИ!»','Пиклбол тебя не спасёт','Шрек: «Это не я!»'];
@@ -89,6 +91,7 @@ const BOING=['БОЙ-ОЙ-ОЙНГ!','Грибной батут!','Прыжок 
 const FL=['Соня: «Пи Диди в тюрьме»','Костя: «Азия — ван лав»','Айдар хотел ливень пожаловаться','Квиз начнётся без вас','Лаура: «Шрек — это любовь»','Гошу в костюме Шрека никто не видел','Пи диди ждёт после погони'];
 const QZ=[['Кто в чате ненавидит стикер Шрека?',['Айдар','Костя','Соня'],0],['Кто чаще всех пишет про Шрека?',['Аня','Лаура','Костя'],1],['Как Айдар называет кофейню DD?',['Пи диди','Ди-ди-бро','Дидо'],0],['Что Айдар хотел заблокировать у Кости?',['Пиклбол','Караоке','Травму'],2],['Кто ставит смайлы скобками «))»?',['Мишка','Женя','Никита'],0],['Какой тур квиза в чате не зашёл?',['Саундтреки','Минное поле','Жанры'],1],['Чьё имя в чате пишут чаще всех?',['Женя','Аня','Айдар'],2]];
 function reset(){sc=dist=0;gap=55;charge=hearts=turbo=shake=0;obs=[];pk=[];logs=[];pt=[];tx=[];dc=[];big=null;flav=10;sd=120;dk=dkT=0;lau={y:0,vy:0,j:0,hurt:0,hm:.8,inv:0,land:0,yl:0};signs=[];boss=null;bossNext=220;paddle=0;sh={st:'run',tt:0,th:3.5,sp:7,tr:14,dash:0,hi:0}}
+const mult=()=>1+Math.min(4,(combo/6)|0);
 const shx=()=>Math.min(250,92+gap*1.55),hutX=()=>W-cl((gap-62)/38,0,1)*112;
 const msg=(s,c)=>{tx.push({s,c:c||'#fff',t:1.8});if(tx.length>3)tx.shift()};
 function burst(x,y,c,n,v){for(let i=0;i<n;i++)pt.push({x,y,vx:rnd(-v,v),vy:rnd(-v*1.2,v*.3),l:rnd(.4,.9),c:c||'#ffd84d',s:2})}
@@ -105,15 +108,15 @@ function spawn(){const x=W+24,r=Math.random(),O=IM.o,ob=k=>{const i=O[k];obs.pus
  if(Math.random()<.5)dc.push({k:pick(['reeds','lamp','reeds']),x:x+rnd(-70,70)});
  sd=rnd(120,190)-Math.min(45,sc/25)}
 /* ---------- игра ---------- */
-function startGame(){reset();paused=false;mode='play';ov.hidden=true;musicOn();sfx.blip();msg('ДОГОНИ ШРЕКА И ОБНИМИ!','#ffcf33')}
+function startGame(){reset();paused=false;stage=1;combo=hits=hugs=0;mode='play';ov.hidden=true;musicOn();sfx.blip();msg('ДОГОНИ ШРЕКА И ОБНИМИ!','#ffcf33')}
 function doJump(){if(mode!='play'||lau.hurt>0||lau.j>1)return;lau.vy=lau.j?195:235;lau.j++;sfx.jump();burst(LX,GY-lau.y,'#c9a46a',4,25)}
-function hurt(k){if(lau.inv>0||turbo>0)return;lau.hm=k=='heart'?.45:.8;lau.hurt=lau.hm;lau.inv=1.6;shake=8;gap+=k=='heart'?8:11;msg(k=='heart'?'Айдар одобряет':k=='sign'?'ЗАПРЕЩЕНО!':pick(HIT),'#ff8080');sfx.hit();lau.vy=0}
+function hurt(k){if(lau.inv>0||turbo>0)return;combo=0;hits++;lau.hm=k=='heart'?.45:.8;lau.hurt=lau.hm;lau.inv=1.6;shake=8;gap+=k=='heart'?8:11;msg(k=='heart'?'Айдар одобряет':k=='sign'?'ЗАПРЕЩЕНО!':pick(HIT),'#ff8080');sfx.hit();lau.vy=0}
 function yell(){if(mode!='play')return;if(charge>=100){charge=0;gap=Math.max(0,gap-25);sh.st='scared';sh.tt=0;shake=10;lau.yl=.4;big={s:'ШРЕЕЕК!!!',t:1.2};sfx.yell();burst(shx(),GY-20,'#7bd143',20,60)}else{msg('Мало любви! Собери сердца','#9cf');sfx.blip()}}
 function quiz(){mode='quiz';const q=pick(QZ),o=q[1].map((s,i)=>({s,ok:i==q[2]})).sort(()=>Math.random()-.5);
  ov.hidden=false;ov.innerHTML=`<div class="box"><h2>? ВОПРОС ИЗ ЧАТА</h2><p>${q[0]}</p>${o.map((a,i)=>`<button class="pb" data-i="${i}">${a.s}</button>`).join('')}</div>`;
- ov.querySelectorAll('button').forEach(b=>b.onclick=()=>{const ok=o[+b.dataset.i].ok;ov.hidden=true;mode='play';lau.inv=1;if(ok){gap=Math.max(0,gap-16);sc+=50;msg('ЗНАТОК ЧАТА! ШРЕК БЛИЖЕ','#7bd143');sfx.star()}else{gap+=5;msg('Айдар: «Ненавижу»','#ff8080');sfx.hit()}})}
+ ov.querySelectorAll('button').forEach(b=>b.onclick=()=>{const ok=o[+b.dataset.i].ok;ov.hidden=true;mode='play';lau.inv=1;if(ok){gap=Math.max(0,gap-16);sc+=50*mult();combo+=2;msg('ЗНАТОК ЧАТА! ШРЕК БЛИЖЕ','#7bd143');sfx.star()}else{gap+=5;msg('Айдар: «Ненавижу»','#ff8080');sfx.hit()}})}
 function upd(dt){
- spd=(95+Math.min(55,sc/35))*(aydar?1.2:1)*(turbo>0?1.3:1);dist+=spd*dt;sc+=spd*dt/10*(aydar?1.5:1);
+ spd=(95+Math.min(55,sc/35)+(stage-1)*8)*(aydar?1.2:1)*(turbo>0?1.3:1);dist+=spd*dt;sc+=spd*dt/10*(aydar?1.5:1);
  turbo=Math.max(0,turbo-dt);lau.inv=Math.max(0,lau.inv-dt);lau.hurt=Math.max(0,lau.hurt-dt);dkT=Math.max(0,dkT-dt);shake=Math.max(0,shake-dt*20);
  const dn=(dk||dkT>0);rp+=spd*dt/9;lau.land=Math.max(0,lau.land-dt);lau.yl=Math.max(0,lau.yl-dt);lau.vy-=520*dt;if(dn&&lau.y>0)lau.vy=Math.min(lau.vy,-260);const air=lau.y>0;lau.y+=lau.vy*dt;if(lau.y<=0){if(air&&lau.vy<-60){lau.land=.1;burst(LX,GY,'#c9a46a',5,30)}lau.y=0;lau.vy=0;lau.j=0}
  const lh=dn&&lau.y==0&&!lau.hurt?16:34;
@@ -125,19 +128,19 @@ function upd(dt){
   else if(turbo>0){o.x=-99;burst(o.x,GY-10,'#c9a46a',10,60)}else hurt('obs')}
  for(const l of logs)if(Math.abs(l.x-LX)<(l.w+10)/2&&lau.y<l.y0+l.h&&lau.y+lh>l.y0){l.dead=1;if(turbo>0)burst(l.x,GY-l.y0,'#c9a46a',10,60);else hurt('log')}
  for(const p of pk)if(!p.got&&Math.abs(p.x-LX)<12&&Math.abs(lau.y+lh/2-p.y)<lh/2+7){p.got=1;const bx=p.x,by=GY-p.y;
-  if(p.k=='heart'){hearts++;sc+=10;gap=Math.max(0,gap-3);charge=Math.min(100,charge+18);burst(bx,by,'#ff6b8a',6,40);sfx.heart()}
-  else if(p.k=='gem'){hearts+=3;sc+=40;gap=Math.max(0,gap-15);charge=Math.min(100,charge+50);msg('ВОТ ЭТО ЛЮБОВЬ!','#ff7ad9');burst(bx,by,'#ff7ad9',14,60);sfx.star()}
+  if(p.k=='heart'){hearts++;const m0=mult();combo++;if(mult()>m0)msg('КОМБО x'+mult()+'!','#ffd84d');sc+=10*mult();gap=Math.max(0,gap-3);charge=Math.min(100,charge+18);burst(bx,by,'#ff6b8a',6,40);sfx.heart()}
+  else if(p.k=='gem'){hearts+=3;combo+=3;sc+=40*mult();gap=Math.max(0,gap-15);charge=Math.min(100,charge+50);msg('ВОТ ЭТО ЛЮБОВЬ!','#ff7ad9');burst(bx,by,'#ff7ad9',14,60);sfx.star()}
   else if(p.k=='star'){turbo=5;msg('ПИ ДИДИ! ТУРБО!','#ffd84d');burst(bx,by,'#ffd84d',16,70);sfx.star()}
   else if(p.k=='broken')hurt('heart');
   else if(p.k=='paddle'){paddle=3;msg('РАКЕТКА! ОТБИВАЙ СТИКЕРЫ!','#7bd143');sfx.star()}
   else if(p.k=='q')quiz()}
- const s=sh;s.tt+=dt;let rate=1.1*(turbo>0?2.4:1);
+ const s=sh;s.tt+=dt;let rate=1.1*Math.pow(.88,stage-1)*(turbo>0?2.4:1);
  if(s.st=='run'){s.th-=dt;s.sp-=dt;s.tr-=dt;
   if(s.th<=0){s.st='carry';s.tt=0;s.hi=Math.random()<.5}
-  else if(s.sp<=0){s.sp=rnd(6,10);s.dash=1.1;msg(pick(SPD),'#ff9f7a')}
+  else if(s.sp<=0){s.sp=rnd(6,10)/(1+.15*(stage-1));s.dash=1.1;msg(pick(SPD),'#ff9f7a')}
   else if(s.tr<=0){s.tr=rnd(13,21);s.st='trip';s.tt=0;gap=Math.max(0,gap-9);msg(pick(TRIP),'#7bd143')}}
  else if(s.st=='carry'&&s.tt>.65){s.st='throw';s.tt=0;logs.push({x:shx()-8,y0:s.hi?19:0,w:28,h:12});sfx.thr()}
- else if(s.st=='throw'&&s.tt>.3){s.st='run';s.th=Math.max(1.8,5-sc/400)+rnd(0,1.5)}
+ else if(s.st=='throw'&&s.tt>.3){s.st='run';s.th=Math.max(1.3,5-sc/400-stage*.3)+rnd(0,1.5)}
  else if(s.st=='trip'&&s.tt>1.3)s.st='run';else if(s.st=='scared'&&s.tt>1.4)s.st='run';
  if(s.st=='trip')rate=3;if(s.st=='scared')rate=4;gap-=rate*dt;if(s.dash>0){s.dash-=dt;gap+=6*dt}
  flav-=dt;if(flav<=0){flav=rnd(11,17);msg(aydar?'АЙДАР: НЕНАВИЖУ!':pick(FL),'#ffd6f0')}
@@ -146,9 +149,9 @@ function upd(dt){
  bossUpd(dt,lh);gap=cl(gap,-1,100);if(gap<=0)win();else if(gap>=100)lose()}
 function updP(dt){pt.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;if(!p.h)p.vy+=300*dt;p.l-=dt});pt=pt.filter(p=>p.l>0);tx.forEach(m=>m.t-=dt);tx=tx.filter(m=>m.t>0);if(big){big.t-=dt;if(big.t<=0)big=null}}
 function bossUpd(dt,lh){
- if(!boss&&sc>=bossNext){boss={x:345,st:'in',tt:0,hp:3,th:1.2,t0:0};gap=Math.max(gap,40);big={s:'АЙДАР!',t:1.3,c:'#ff4d4d'};shake=8;pk.push({k:'paddle',x:W+40,y:16});msg('АЙДАР ПОМОГАЕТ ШРЕКУ УБЕЖАТЬ!','#ff6060');sfx.yell()}
+ if(!boss&&sc>=bossNext){boss={x:345,st:'in',tt:0,hp:Math.min(5,2+stage),mx:Math.min(5,2+stage),th:1.2,t0:0,pw:6};gap=Math.max(gap,58);big={s:'АЙДАР!',t:1.3,c:'#ff4d4d'};shake=8;pk.push({k:'paddle',x:W+40,y:16});msg('АЙДАР ПОМОГАЕТ ШРЕКУ УБЕЖАТЬ!','#ff6060');sfx.yell()}
  const b=boss;
- if(b){b.tt+=dt;b.t0+=dt;const tg=Math.max(112,shx()-34);if(b.st!='dead'&&b.st!='in')b.x+=(tg-b.x)*Math.min(1,dt*4);
+ if(b){b.tt+=dt;b.t0+=dt;const tg=Math.max(150,shx()-30);if(b.st!='dead'&&b.st!='in')b.x+=(tg-b.x)*Math.min(1,dt*4);
   if(b.st=='in'){b.x=Math.max(tg,b.x-130*dt);if(b.x<=tg){b.st='idle';b.tt=0}}
   else if(b.st=='idle'){b.th-=dt;if(b.th<=0){b.st='wind';b.tt=0}}
   else if(b.st=='wind'&&b.tt>.45){b.st='throw';b.tt=0;signs.push({x:b.x-18,y:pick([10,26,44]),ph:rnd(0,6),back:0});sfx.thr()}
@@ -156,10 +159,10 @@ function bossUpd(dt,lh){
   else if(b.st=='hit'&&b.tt>.5){b.st='idle';b.tt=0;b.th=.8}
   else if(b.st=='dead'){if(b.tt>1.6)b.x+=110*dt;if(b.x>360){boss=null;bossNext=sc+320}}
   if(b.st!='dead'&&b.st!='in'&&b.t0>18){b.st='dead';b.tt=0;msg('Айдар ушёл ненавидеть в другом месте','#ff9f7a')}}
- if(b&&b.st!='dead'){gap=Math.max(gap,25);if(b.st!='in')gap+=dt*1.5}
+ if(b&&b.st!='dead'){gap=Math.max(gap,52);if(b.st!='in')gap+=dt*1;b.pw-=dt;if(paddle<=0&&b.pw<=0&&!pk.some(p=>p.k=='paddle')){pk.push({k:'paddle',x:W+20,y:16});b.pw=5}}
  for(const s of signs){
-  if(s.back){s.x+=(spd+260)*dt;if(b&&b.st!='dead'&&s.x>=b.x-8){s.dead=1;b.hp--;b.st='hit';b.tt=0;shake=6;sfx.hit();burst(b.x,GY-20,'#fff',10,60);if(b.hp<=0){b.st='dead';b.tt=0;gap=Math.max(0,gap-25);sc+=100;msg('АЙДАР ПОВЕРЖЕН! ШРЕК БЛИЖЕ','#7bd143');sfx.star()}}}
-  else{s.x-=(spd+100)*dt;if(Math.abs(s.x-LX)<12&&lau.y<s.y+8&&lau.y+lh>s.y-8){s.dead=1;if(paddle>0){paddle--;signs.push({x:LX+8,y:s.y,ph:0,back:1});msg('ПИКЛБОЛ!','#7bd143');sfx.heart()}else if(turbo>0)burst(s.x,GY-s.y,'#fff',8,50);else hurt('sign')}}}
+  if(s.back){s.x+=(spd+260)*dt;if(b&&b.st!='dead'&&s.x>=b.x-8){s.dead=1;b.hp--;b.st='hit';b.tt=0;shake=6;sfx.hit();burst(b.x,GY-20,'#fff',10,60);if(b.hp<=0){b.st='dead';b.tt=0;gap=Math.max(0,gap-25);sc+=500;msg('АЙДАР ПОВЕРЖЕН! +500','#7bd143');sfx.star()}}}
+  else{s.x-=(spd+100)*dt;if(Math.abs(s.x-LX)<12&&lau.y<s.y+8&&lau.y+lh>s.y-8){s.dead=1;if(paddle>0){paddle--;signs.push({x:LX+8,y:s.y,ph:0,back:1});sc+=50;msg('ПИКЛБОЛ! +50','#7bd143');sfx.heart()}else if(turbo>0)burst(s.x,GY-s.y,'#fff',8,50);else hurt('sign')}}}
  signs=signs.filter(s=>!s.dead&&s.x>-20&&s.x<350)}
 function sprF(im,x,y,k,fl){const w=Math.round(im.width*k),h=Math.round(im.height*k);cx.save();cx.translate(Math.round(x),Math.round(y));if(fl)cx.scale(-1,1);cx.drawImage(im,-Math.round(w/2),-h,w,h);cx.restore()}
 function shad(x,y,h){const w=Math.max(6,16-h*.12);cx.fillStyle='rgba(0,0,0,.28)';cx.fillRect(Math.round(x-w/2),y,w,2)}
@@ -186,25 +189,26 @@ function actors(){
  if(paddle>0){cx.save();cx.translate(LX+13,GY-lau.y-18);cx.rotate(-.5+Math.sin(t*10)*.15);cx.drawImage(IM.o.paddle,-4,-20);cx.restore()}
  pt.forEach(p=>{if(p.h)cx.drawImage(IM.o.heart,p.x|0,p.y|0,8,7);else{cx.fillStyle=p.c;cx.fillRect(p.x|0,p.y|0,p.s,p.s)}})}
 function ui(){
- T(String(sc|0).padStart(5,'0'),6,12,8);cx.drawImage(IM.o.heart,6,16,10,9);T('x'+hearts,19,24,8,'#ff6b8a');
+ T(String(sc|0).padStart(5,'0'),6,12,8);if(mult()>1)T('x'+mult(),70,12,8,'#ffd84d');T('ЭТАП '+stage,314,24,6,'#ffcf33','right');cx.drawImage(IM.o.heart,6,16,10,9);T('x'+hearts,19,24,8,'#ff6b8a');
  cx.fillStyle='#000a';cx.fillRect(86,5,168,9);cx.fillStyle=gap>78&&(t*6|0)%2?'#ff4040':'#9a3a7a';cx.fillRect(88,7,cl(gap,0,100)/100*164,5);
  const a=IM.L[0],b=IM.S[0],h=IM.o.hut;cx.drawImage(a,78,0,a.width*13/a.height,13);cx.drawImage(b,Math.round(86+cl(gap,0,100)*1.6),0,b.width*.3,b.height*.3);cx.drawImage(h,254,1,h.width*.13,h.height*.13);
  cx.fillStyle='#000a';cx.fillRect(6,170,64,7);cx.fillStyle=charge>=100&&(t*8|0)%2?'#fff':'#7bd143';cx.fillRect(8,172,charge*.6,3);T(charge>=100?'ЖМИ «ШРЕК!»':'ЛЮБОВЬ',74,177,6,charge>=100?'#7bd143':'#fff');
  if(turbo>0)T('ПИ ДИДИ ТУРБО '+turbo.toFixed(1),W/2,34,8,'#ffd84d','center');
  tx.slice(-2).forEach((m,i)=>{cx.globalAlpha=Math.min(1,m.t*2);T(m.s,W/2,52+i*11,7,m.c,'center');cx.globalAlpha=1});
- if(boss&&boss.st!='dead'){cx.fillStyle='#000a';cx.fillRect(110,17,100,9);cx.fillStyle='#ff4040';cx.fillRect(112,19,Math.max(0,boss.hp)*32,5);T('АЙДАР',W/2,25,6,'#fff','center')}
+ if(boss&&boss.st!='dead'){cx.fillStyle='#000a';cx.fillRect(110,17,100,9);cx.fillStyle='#ff4040';cx.fillRect(112,19,Math.max(0,boss.hp)/boss.mx*96,5);T('АЙДАР',W/2,25,6,'#fff','center')}
  if(paddle>0)T('РАКЕТКА x'+paddle,314,177,6,'#7bd143','right');
  if(big){const z=10+Math.sin(t*20)*1.5;T(big.s,W/2,90,z+6,big.c||'#7bd143','center')}}
-function world(){const sx=shake?rnd(-shake/2,shake/2):0,sy=shake?rnd(-shake/3,shake/3):0;cx.save();cx.translate(Math.round(sx),Math.round(sy));scene();hut();actors();cx.restore();ui()}
+function weather(){const k=stage%3;if(k==1)return;if(k==2){cx.fillStyle='rgba(20,20,90,.22)';cx.fillRect(0,0,W,H);cx.fillStyle='#bcd7ff';for(let i=0;i<46;i++)cx.fillRect((i*37+i*i)%W,((i*53+t*330)%H)|0,1,4)}else{cx.fillStyle='#ffc2dd';for(let i=0;i<30;i++)cx.fillRect((W-((i*41+t*30+Math.sin(t+i)*14)%W))|0,((i*29+t*28)%H)|0,2,2)}}
+function world(){const sx=shake?rnd(-shake/2,shake/2):0,sy=shake?rnd(-shake/3,shake/3):0;cx.save();cx.translate(Math.round(sx),Math.round(sy));scene();hut();actors();weather();cx.restore();ui()}
 function drawIntro(dt){intro+=dt;dist+=(intro>1.6?70:15)*dt;updP(dt);
  if(intro<1.6){cx.fillStyle='#000';cx.fillRect(0,0,W,H);const s='Лаура очень любит Шрека...';T(s.slice(0,Math.min(s.length,intro*20|0)),W/2,H/2,8,'#fff','center');return}
  scene();const r=1+((t*10)|0)%4,p=(intro-1.6)/2;
  if(intro<3.6){const sx=-30+p*390,lx=-30+Math.max(0,p-.28)*390;spr(IM.S[r],sx,GY);spr(IM.L[(t*11|0)%8],lx,GY);if(p<.5)T('АААА!',sx+12,GY-50,8,'#7bd143');else T('ШРЕК!!',lx-6,GY-50,8,'#ff7ad9');cx.drawImage(IM.o.heart,lx+10,GY-52+Math.sin(t*9)*2,8,7);return}
  spr(IM.S[r],205,GY);spr(IM.L[(t*11|0)%8],82,GY);
  const wv=(s,y,sz,c)=>{for(let i=0;i<s.length;i++)T(s[i],W/2-s.length*sz/2+i*sz,y+Math.sin(t*5+i)*3,sz,c)};
- wv('ЛАУРА',50,22,'#ffcf33');T('против',W/2,70,8,'#fff','center');wv('ШРЕК',96,22,'#7bd143');T('ОБНИМАШКИ НАВСЕГДА',W/2,114,8,'#ff9fd0','center');
+ wv('ЛАУРА',50,22,'#ffcf33');T('против',W/2,70,8,'#fff','center');wv('ШРЕК',96,22,'#7bd143');T('ОБНИМАШКИ НАВСЕГДА',W/2,114,8,'#ff9fd0','center');if(best)T('РЕКОРД '+best,W/2,130,7,'#ffd84d','center');
  if((t*2|0)%2)T('ТАП ИЛИ ПРОБЕЛ: БЕГИ!',W/2,160,8,'#fff','center');T('секрет: набери SHREK',W/2,174,6,'#ffffff99','center')}
-function win(){mode='win';wt=0;shown=0;musicOff();sc+=300;best=Math.max(best,sc|0);try{localStorage.setItem('lsbest',best)}catch(e){}sfx.win();burst(110,60,'#ffd84d',40,90);lau.inv=0}
+function win(){mode='win';wt=0;shown=0;musicOff();wi={bonus:500*stage+(hits==0?500:0),clean:hits==0};sc+=wi.bonus;hugs++;sfx.win();burst(110,60,'#ffd84d',40,90);lau.inv=0}
 function drawWin(dt){wt+=dt;if(wt<.5)dist+=40*dt;updP(dt);const hx=92,z=1+cl((wt-.5)*.8,0,1.1);
  cx.save();cx.fillStyle='#000';cx.fillRect(0,0,W,H);cx.translate(W/2,H/2+8);cx.scale(z,z);cx.translate(-(hx-6),-(GY-22));
  scene();if(wt<.5){spr(IM.S[7],hx,GY);spr(IM.L[10],LX+(hx-14-LX)*wt/.5,GY-Math.sin(wt/.5*Math.PI)*14)}else spr(IM.L[wt<1.4?15:wt<2.6?16:17],hx-4,GY+2);
@@ -214,11 +218,15 @@ function drawWin(dt){wt+=dt;if(wt<.5)dist+=40*dt;updP(dt);const hx=92,z=1+cl((wt
  if(wt<.15){cx.fillStyle='#fff';cx.fillRect(0,0,W,H)}
  if(wt>1)T('ОБНИМАШКИ!',W/2,34,16+(Math.sin(wt*8)*2|0),'#ffd84d','center');
  if(wt>2.2)T('Шрек: «Ладно... один разок»',W/2,160,7,'#7bd143','center');if(wt>3.3)T('Айдар: «Ненавижу»',W/2,172,7,'#ff8080','center');
- if(wt>4.2&&!shown){shown=1;ov.hidden=false;ov.innerHTML=`<div class="box"><h2>ЛАУРА ОБНЯЛА ШРЕКА!</h2><p>Шрек сдался. Айдар в ярости. Чат в восторге.</p><p>СЧЁТ ${sc|0}<br>РЕКОРД ${best}</p><button class="pb" id="rt">ЕЩЁ РАЗ</button></div>`;$('#rt').onclick=startGame}}
+ if(wt>4.2&&!shown){shown=1;ov.hidden=false;ov.innerHTML=`<div class="box"><h2>ОБНИМАШКА №${hugs}!</h2><p>Бонус этапа +${wi.bonus}${wi.clean?'<br>ЧИСТЫЙ ЭТАП: +500 уже внутри':''}</p><p>СЧЁТ ${sc|0}<br>РЕКОРД ${best}</p><button class="pb" id="nx">ДАЛЬШЕ: ЭТАП ${stage+1}</button><button class="pb" id="rt" style="background:#ff8fb1">ЗАКОНЧИТЬ</button></div>`;$('#nx').onclick=nextStage;$('#rt').onclick=()=>final(0,'ЛАУРА НЕ СДАЁТСЯ','Шрек пока в безопасности, но не навсегда.')}}
+function final(img,h2,p){const nb=(sc|0)>=best&&sc>0;best=Math.max(best,sc|0);try{localStorage.setItem('lsbest',best)}catch(e){}
+ ov.hidden=false;ov.innerHTML=`<div class="box">${img?`<img src="${A.d}" alt="">`:''}<h2>${h2}</h2><p>${p}</p><p>СЧЁТ ${sc|0}${nb?' · НОВЫЙ РЕКОРД!':''}<br>ОБНЯТО ШРЕКОВ: ${hugs} · ЭТАП ${stage}<br>РЕКОРД ${best}</p><button class="pb" id="rt">ЕЩЁ РАЗ</button><button class="pb" id="cp" style="background:#9be04a">СКОПИРОВАТЬ СЧЁТ</button></div>`;
+ $('#rt').onclick=startGame;$('#cp').onclick=async()=>{const t=`Лаура vs Шрек: ${sc|0} очков, обняла Шрека ${hugs} р., этап ${stage}. Побьёшь?`;try{await navigator.clipboard.writeText(t);$('#cp').textContent='СКОПИРОВАНО'}catch(e){$('#cp').textContent=t}}}
+function nextStage(){stage++;hits=0;combo=0;ov.hidden=true;gap=62;charge=0;turbo=0;obs=[];pk=[];logs=[];signs=[];pt=[];boss=null;bossNext=sc+260;sd=140;sh={st:'run',tt:0,th:3,sp:7,tr:14,dash:0,hi:0};lau.hurt=0;lau.inv=1.5;lau.y=0;lau.vy=0;mode='play';musicOn();sfx.blip();big={s:'ЭТАП '+stage+'!',t:1.4};msg(stage%3==2?'Ливень! Айдар рад: есть на что жаловаться':stage%3==0?'Сакура! Шрек снова ускорился':'Шрек научился бегать быстрее','#ffd84d')}
 function lose(){mode='lose';lt=0;shown=0;musicOff();sfx.lose();best=Math.max(best,sc|0);try{localStorage.setItem('lsbest',best)}catch(e){}gap=100;sh.st='run';sh.sx=shx()}
 function drawLose(dt){lt+=dt;dist+=Math.max(0,40-lt*40)*dt;updP(dt);scene();hut();const tgt=hutX()+52;sh.sx=Math.min(tgt,sh.sx+80*dt);if(sh.sx<tgt)spr(IM.S[1+((t*10)|0)%4],sh.sx,GY);
  spr(IM.L[14],LX,GY);T('ШРЕК СБЕЖАЛ В ИЗБУШКУ...',W/2,50,8,'#fff','center');
- if(lt>2&&!shown){shown=1;ov.hidden=false;ov.innerHTML=`<div class="box"><img src="${A.d}" alt=""><h2>ШРЕК ЗАПЕРСЯ</h2><p>Лаура: «Шрек, ну пожалуйста...»<br>Айдар доволен.</p><p>СЧЁТ ${sc|0}<br>РЕКОРД ${best}</p><button class="pb" id="rt">ЕЩЁ РАЗ</button></div>`;$('#rt').onclick=startGame}}
+ if(lt>2&&!shown){shown=1;final(1,'ШРЕК ЗАПЕРСЯ','Лаура: «Шрек, ну пожалуйста...»<br>Айдар доволен.')}}
 /* ---------- ввод и цикл ---------- */
 function press(){ax();if(mode=='intro'){if(intro<3.6)intro=3.6;else startGame()}else if(mode=='play')doJump()}
 const duck=v=>{dk=v;if(v)ax()};
